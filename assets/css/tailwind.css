@@ -1,0 +1,8 @@
+@import '@mindenit/ui/index.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#__nuxt {
+  @apply flex flex-col w-full h-dvh;
+}
