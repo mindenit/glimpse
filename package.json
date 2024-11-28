@@ -2,6 +2,18 @@
   "name": "glimpse",
   "private": true,
   "type": "module",
+  "license": "GPL-3.0-only",
+  "homepage": "https://github.com/mindenit/glimpse#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mindenit/glimpse.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mindenit/glimpse/issues"
+  },
+  "engines": {
+    "node": ">=20.x.x"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -12,7 +24,7 @@
     "lint": "eslint .",
     "lint:prettier": "prettier . --check",
     "lint:fix": "eslint . --fix && prettier --write --list-different .",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "dependencies": {
     "@internationalized/date": "^3.6.0",
@@ -26,26 +38,14 @@
     "vue": "latest",
     "vue-router": "latest"
   },
-  "packageManager": "pnpm@9.9.0+sha512.60c18acd138bff695d339be6ad13f7e936eea6745660d4cc4a776d5247c540d0edee1a563695c183a66eb917ef88f2b4feb1fc25f32a7adcadc7aaf3438e99c1",
   "devDependencies": {
     "@commitlint/cli": "^19.6.0",
     "@commitlint/config-conventional": "^19.6.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
-    "husky": "^8.0.0",
+    "husky": "^9.1.7",
     "prettier": "^3.4.1",
     "typescript": "^5.7.2"
   },
-  "engines": {
-    "node": ">=20.16.0"
-  },
-  "license": "GPL-3.0-only",
-  "homepage": "https://github.com/mindenit/glimpse#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mindenit/glimpse.git"
-  },
-  "bugs": {
-    "url": "https://github.com/mindenit/glimpse/issues"
-  }
+  "packageManager": "pnpm@9.9.0+sha512.60c18acd138bff695d339be6ad13f7e936eea6745660d4cc4a776d5247c540d0edee1a563695c183a66eb917ef88f2b4feb1fc25f32a7adcadc7aaf3438e99c1"
 }
