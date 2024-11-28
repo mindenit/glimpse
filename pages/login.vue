@@ -13,60 +13,36 @@ import {
 const email = ref('')
 const password = ref('')
 const isChecked = ref(false)
-const emailError = ref('')
-const passwordError = ref('')
 const isPasswordVisible = ref(false)
-const isSubmitted = ref(false)
-
-const validateEmail = (value: string) => {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  return emailRegex.test(value)
-}
-
-const validatePassword = (value: string) => {
-  return value.trim().length >= 6
-}
 
 const isDisabled = computed(() => {
   return !email.value.trim().length || !password.value.trim().length
 })
 
-const handleValidation = () => {
-  if (!validateEmail(email.value)) {
-    emailError.value = 'Введіть правильну електронну адресу'
-  } else {
-    emailError.value = ''
-  }
+const passwordInputType = computed(() => {
+  return isPasswordVisible.value ? 'text' : 'password'
+})
 
-  if (!validatePassword(password.value)) {
-    passwordError.value = 'Пароль повинен містити не менше 6 символів'
-  } else {
-    passwordError.value = ''
-  }
+const passwordToggleIcon = computed(() => {
+  return isPasswordVisible.value ? 'ph:eye-slash' : 'ph:eye'
+})
+
+const togglePasswordVisibility = () => {
+  isPasswordVisible.value = !isPasswordVisible.value
 }
 
 const handleSubmit = (event: Event) => {
   event.preventDefault()
-  isSubmitted.value = true
-  handleValidation()
 
-  if (!emailError.value && !passwordError.value) {
-    console.log({
-      email: email.value,
-      password: password.value,
-      isChecked: isChecked.value,
-    })
+  console.log({
+    email: email.value,
+    password: password.value,
+    isChecked: isChecked.value,
+  })
 
-    email.value = ''
-    password.value = ''
-    isChecked.value = false
-    emailError.value = ''
-    passwordError.value = ''
-  }
-}
-
-const togglePasswordVisibility = () => {
-  isPasswordVisible.value = !isPasswordVisible.value
+  email.value = ''
+  password.value = ''
+  isChecked.value = false
 }
 </script>
 
@@ -92,11 +68,6 @@ const togglePasswordVisibility = () => {
             autofocus
           />
         </TextFieldRoot>
-        <div class="flex w-full justify-start">
-          <p v-if="isSubmitted && emailError" class="text-amaranth-500 text-sm">
-            {{ emailError }}
-          </p>
-        </div>
       </div>
       <div class="flex flex-col w-full gap-2">
         <FormLabel for="password">Пароль</FormLabel>
@@ -109,7 +80,7 @@ const togglePasswordVisibility = () => {
             name="password"
             id="password"
             placeholder="Введіть пароль"
-            :type="isPasswordVisible ? 'text' : 'password'"
+            :type="passwordInputType"
           />
           <TextFieldSlot>
             <IconButton
@@ -117,19 +88,11 @@ const togglePasswordVisibility = () => {
               type="button"
               variant="ghost"
               size="xs"
-              :icon="isPasswordVisible ? 'ph:eye-slash' : 'ph:eye'"
+              :icon="passwordToggleIcon"
               @click="togglePasswordVisibility"
             />
           </TextFieldSlot>
         </TextFieldRoot>
-      </div>
-      <div class="flex w-full justify-start">
-        <p
-          v-if="isSubmitted && passwordError"
-          class="text-amaranth-500 text-sm"
-        >
-          {{ passwordError }}
-        </p>
       </div>
       <div class="flex items-center w-full gap-x-2">
         <Checkbox :checked="isChecked" @update:checked="isChecked = $event" />
