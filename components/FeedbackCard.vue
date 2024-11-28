@@ -7,12 +7,7 @@ interface Feedback {
   text: string
 }
 
-defineProps({
-  feedback: {
-    type: Object as () => Feedback,
-    required: true,
-  },
-})
+defineProps<{ feedback: Feedback }>()
 </script>
 
 <template>
