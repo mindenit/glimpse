@@ -123,10 +123,10 @@
           </div>
           <!-- Feedback Section -->
           <div class="p-5 rounded-b-3xl">
-            <div class="flex flex-row items-center justify-between">
+            <div class="flex flex-col items-center justify-between lg:flex-row lg:mb-0 mb-5">
               <Heading
                 size="large"
-                class="text-4xl text-black my-5 py-5 rounded-lg break-words sm:truncate lg:break-normal"
+                class="text-4xl text-black my-5 lg:my-5 lg:py-5 rounded-lg break-words sm:truncate lg:break-normal text-center lg:text-start"
               >
                 Відгуки про {{ mockData.nickname }}
               </Heading>
@@ -147,28 +147,11 @@
               >
                 Немає відгуків
               </div>
-              <div
-                v-for="(feedback, index) in mockData.feedbacks"
-                :key="index"
-                class="bg-fiord-900 rounded-md p-5 shadow-sm flex flex-col gap-3 cursor-pointer hover:scale-105 hover:shadow-fiord-700 hover:shadow-lg transition-transform duration-300 h-40 lg:h-56"
-              >
-                <div class="flex items-center gap-3">
-                  <Avatar
-                    fallback="AU"
-                    size="40px"
-                    class="rounded-full bg-fiord-200 flex-shrink-0"
-                  />
-                  <Heading size="tiny" class="truncate text-christi-400">{{
-                    feedback.authorNickname
-                  }}</Heading>
-                </div>
-                <Text size="small" class="mt-2 font-semibold text-christi-500"
-                  >Оцінка: {{ feedback.rating }}</Text
-                >
-                <Text size="small" class="mt-2 text-fiord-400">{{
-                  feedback.text
-                }}</Text>
-              </div>
+              <FeedbackCard
+                  v-for="(feedback, index) in mockData.feedbacks"
+                  :key="index"
+                  :feedback="feedback"
+                />
             </div>
           </div>
         </section>
@@ -179,6 +162,7 @@
 
 <script setup lang="ts">
 import { Avatar, Heading, Badge, Text, Button, Link } from '@mindenit/ui'
+import FeedbackCard from './components/FeedbackCard.vue'
 
 interface Feedback {
   authorNickname: string
