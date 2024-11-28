@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "glimpse",
   "private": true,
   "type": "module",
   "scripts": {
@@ -35,5 +35,17 @@
     "husky": "^8.0.0",
     "prettier": "^3.4.1",
     "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=20.16.0"
+  },
+  "license": "GPL-3.0-only",
+  "homepage": "https://github.com/mindenit/glimpse#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mindenit/glimpse.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mindenit/glimpse/issues"
   }
 }
