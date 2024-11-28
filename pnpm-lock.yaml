@@ -39,6 +39,9 @@ importers:
         specifier: latest
         version: 4.5.0(vue@3.5.13(typescript@5.7.2))
     devDependencies:
+      '@iconify-json/ph':
+        specifier: ^1.2.1
+        version: 1.2.1
       typescript:
         specifier: ^5.7.2
         version: 5.7.2
@@ -733,6 +736,9 @@ packages:
   '@humanwhocodes/retry@0.4.1':
     resolution: {integrity: sha512-c7hNEllBlenFTHBky65mhq8WD2kbN9Q6gk0bTk8lSBvc554jpXSkST1iePudpt7+A/AQvuHs9EMqjHDXMY1lrA==}
     engines: {node: '>=18.18'}
+
+  '@iconify-json/ph@1.2.1':
+    resolution: {integrity: sha512-x0DNfwWrS18dbsBYOq3XGiZnGz4CgRyC+YSl/TZvMQiKhIUl1woWqUbMYqqfMNUBzjyk7ulvaRovpRsIlqIf8g==}
 
   '@iconify/collections@1.0.487':
     resolution: {integrity: sha512-O9QY0+++FiBRodC/Bqw9w9EeWUSKjOaVF59p72wLhW7ohEWc4KZnAOEocNGOdYosd6ICyYRQOPFc16UgJS2QKQ==}
@@ -5007,6 +5013,10 @@ snapshots:
   '@humanwhocodes/retry@0.3.1': {}
 
   '@humanwhocodes/retry@0.4.1': {}
+
+  '@iconify-json/ph@1.2.1':
+    dependencies:
+      '@iconify/types': 2.0.0
 
   '@iconify/collections@1.0.487':
     dependencies:
