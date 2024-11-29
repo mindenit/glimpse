@@ -17,13 +17,14 @@
     "@nuxt/icon": "^1.8.2",
     "@nuxtjs/color-mode": "^3.5.2",
     "@nuxtjs/tailwindcss": "^6.12.2",
-    "@vee-validate/valibot": "^4.14.7",
+    "@vee-validate/zod": "^4.14.7",
     "@vueuse/nuxt": "^11.3.0",
     "nuxt": "^3.14.1592",
     "valibot": "1.0.0-beta.8",
     "vee-validate": "^4.14.7",
     "vue": "latest",
-    "vue-router": "latest"
+    "vue-router": "latest",
+    "zod": "^3.23.8"
   },
   "packageManager": "pnpm@9.9.0+sha512.60c18acd138bff695d339be6ad13f7e936eea6745660d4cc4a776d5247c540d0edee1a563695c183a66eb917ef88f2b4feb1fc25f32a7adcadc7aaf3438e99c1",
   "devDependencies": {

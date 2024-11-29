@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/valibot'
-import * as v from 'valibot'
+import { useForm, useField } from 'vee-validate'
+import { toTypedSchema } from '@vee-validate/zod'
+import * as zod from 'zod'
 
 import {
   Heading,
@@ -18,28 +18,26 @@ import {
   FormControl,
 } from '@mindenit/ui'
 
-const schema = v.object({
-  email: v.pipe(v.string(), v.email()),
-  password: v.pipe(v.string(), v.minLength(6)),
-  rememberMe: v.boolean(),
+const validationSchema = toTypedSchema(
+  zod.object({
+    email: zod.string().email('Неправильний формат електронної пошти'),
+    password: zod.string().min(6, 'Пароль має містити мінімум 6 символів'),
+  })
+)
+
+const { handleSubmit, errors, resetForm, values } = useForm({
+  validationSchema: validationSchema,
 })
 
-const formSchema = toTypedSchema(schema)
+const { value: email } = useField<string>('email')
+const { value: password } = useField<string>('password')
 
-const { handleSubmit } = useForm({
-  validationSchema: formSchema,
-})
-
-const formData = ref({
-  email: '',
-  password: '',
-  rememberMe: false,
-})
-
+const isChecked = ref(false)
 const isPasswordVisible = ref(false)
+const isFormSubmitted = ref(false)
 
 const isDisabled = computed(
-  () => !formData.value.email.trim() || !formData.value.password.trim()
+  () => !values.email?.trim() || !values.password?.trim()
 )
 
 const passwordInputType = computed(() =>
@@ -54,9 +52,19 @@ const togglePasswordVisibility = () => {
   isPasswordVisible.value = !isPasswordVisible.value
 }
 
-const onSubmit = handleSubmit((values) => {
-  console.log('Form submitted', values)
-})
+const onSubmit = handleSubmit(
+  (values) => {
+    const formData = { ...values, rememberMe: isChecked.value }
+    console.log('Form submitted with values:', formData)
+    resetForm()
+    isChecked.value = false
+    isFormSubmitted.value = false
+  },
+  (errors) => {
+    console.error('Validation errors:', errors)
+    isFormSubmitted.value = true
+  }
+)
 </script>
 
 <template>
@@ -75,7 +83,7 @@ const onSubmit = handleSubmit((values) => {
               <Icon name="ph:envelope-simple" />
             </TextFieldSlot>
             <TextFieldInput
-              v-model="formData.email"
+              v-model="email"
               name="email"
               id="email"
               type="email"
@@ -83,7 +91,12 @@ const onSubmit = handleSubmit((values) => {
               autofocus
             />
           </TextFieldRoot>
-          <FormMessage name="email" />
+          <FormMessage
+            v-if="isFormSubmitted && errors.email"
+            name="email"
+            class="text-red-400"
+            >{{ errors.email }}</FormMessage
+          >
         </FormItem>
       </FormField>
 
@@ -98,13 +111,13 @@ const onSubmit = handleSubmit((values) => {
               <TextFieldInput
                 id="password"
                 name="password"
-                v-model="formData.password"
+                v-model="password"
                 :type="passwordInputType"
                 placeholder="Введіть пароль"
               />
               <TextFieldSlot>
                 <IconButton
-                  v-show="formData.password"
+                  v-show="values.password"
                   type="button"
                   variant="ghost"
                   size="xs"
@@ -114,14 +127,23 @@ const onSubmit = handleSubmit((values) => {
               </TextFieldSlot>
             </TextFieldRoot>
           </FormControl>
-          <FormMessage name="password" />
+          <FormMessage
+            v-if="isFormSubmitted && errors.password"
+            name="password"
+            class="text-red-400"
+            >{{ errors.password }}</FormMessage
+          >
         </FormItem>
       </FormField>
 
       <div class="flex items-center w-full gap-x-2">
         <FormField name="rememberMe">
           <FormControl>
-            <Checkbox v-model="formData.rememberMe" />
+            <Checkbox
+              v-model="isChecked"
+              :checked="isChecked"
+              @update:checked="isChecked = $event"
+            />
           </FormControl>
         </FormField>
         <FormLabel>Залишатись в системі?</FormLabel>
@@ -136,7 +158,7 @@ const onSubmit = handleSubmit((values) => {
           Немає акаунту?
           <router-link
             to="/signup"
-            class="text-[#808EF9] font-bold hover:underline"
+            class="text-royal-blue-500 font-bold hover:underline"
           >
             Зареєструватись
           </router-link>
