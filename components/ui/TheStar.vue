@@ -3,8 +3,8 @@
     <div
       v-for="i in maxStars"
       :key="i"
-      :class="['star', i <= (isHovered ? hoverValue : rating) ? 'filled' : '']"
-      @click="setRating(i)"
+      :class="['star', i <= (isHovered ? hoverValue : value) ? 'filled' : '']"
+      @click="updateRating(i)"
       @mouseover="hoverRating(i)"
       @mouseleave="resetHover"
     >
@@ -14,11 +14,11 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
 export default {
   props: {
-    value: {
+    modelValue: {
       type: Number,
       default: 0,
     },
@@ -27,32 +27,42 @@ export default {
       default: 5,
     },
   },
+  emits: ['update:modelValue'],
   setup(props, { emit }) {
-    const rating = ref(props.value)
+    const value = ref(props.modelValue)
     const isHovered = ref(false)
     const hoverValue = ref(0)
 
-    const setRating = (newRating) => {
-      rating.value = newRating
-      emit('ratingData', newRating)
+    // Watch for external updates to the modelValue
+    watch(
+      () => props.modelValue,
+      (newVal) => {
+        value.value = newVal
+      }
+    )
+
+    const updateRating = (newRating) => {
+      value.value = newRating
+      emit('update:modelValue', newRating)
     }
 
-    const hoverRating = (value) => {
-      if (isHovered.value) {
-        hoverValue.value = value
-      }
+    const hoverRating = (hoverVal) => {
+      isHovered.value = true
+      hoverValue.value = hoverVal
     }
 
     const resetHover = () => {
+      isHovered.value = false
       hoverValue.value = 0
     }
 
     return {
-      rating,
+      value,
       isHovered,
+      hoverValue,
+      updateRating,
       hoverRating,
       resetHover,
-      setRating,
     }
   },
 }
@@ -60,15 +70,14 @@ export default {
 
 <style scoped>
 .star-rating {
-  display: inline-block;
+  display: flex;
+  gap: 4px;
 }
 
 .star {
-  display: inline-block;
   font-size: 24px;
   cursor: pointer;
-  margin: 2px;
-  color: rgb(222, 222, 222);
+  color: #ddd;
 }
 
 .filled {
