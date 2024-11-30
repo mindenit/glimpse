@@ -33,9 +33,12 @@ export default {
     const isHovered = ref(false)
     const hoverValue = ref(0)
 
-    watch(() => props.modelValue, (newVal) => {
-      value.value = newVal
-    })
+    watch(
+      () => props.modelValue,
+      (newVal) => {
+        value.value = newVal
+      },
+    )
 
     const updateRating = (newRating) => {
       value.value = newRating
