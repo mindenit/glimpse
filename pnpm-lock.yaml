@@ -26,18 +26,30 @@ importers:
       '@nuxtjs/tailwindcss':
         specifier: ^6.12.2
         version: 6.12.2(magicast@0.3.5)(rollup@4.27.4)
+      '@vee-validate/zod':
+        specifier: ^4.14.7
+        version: 4.14.7(vue@3.5.13(typescript@5.7.2))
       '@vueuse/nuxt':
         specifier: ^11.3.0
         version: 11.3.0(magicast@0.3.5)(nuxt@3.14.1592(@parcel/watcher@2.5.0)(@types/node@22.10.0)(eslint@9.15.0(jiti@2.4.0))(ioredis@5.4.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.27.4)(terser@5.36.0)(typescript@5.7.2)(vite@5.4.11(@types/node@22.10.0)(terser@5.36.0)))(rollup@4.27.4)(vue@3.5.13(typescript@5.7.2))
       nuxt:
         specifier: ^3.14.1592
         version: 3.14.1592(@parcel/watcher@2.5.0)(@types/node@22.10.0)(eslint@9.15.0(jiti@2.4.0))(ioredis@5.4.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.27.4)(terser@5.36.0)(typescript@5.7.2)(vite@5.4.11(@types/node@22.10.0)(terser@5.36.0))
+      valibot:
+        specifier: 1.0.0-beta.8
+        version: 1.0.0-beta.8(typescript@5.7.2)
+      vee-validate:
+        specifier: ^4.14.7
+        version: 4.14.7(vue@3.5.13(typescript@5.7.2))
       vue:
         specifier: latest
         version: 3.5.13(typescript@5.7.2)
       vue-router:
         specifier: latest
         version: 4.5.0(vue@3.5.13(typescript@5.7.2))
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
     devDependencies:
       '@commitlint/cli':
         specifier: ^19.6.0
@@ -1423,6 +1435,9 @@ packages:
     resolution: {integrity: sha512-s5++LqsNM01rkMQwtc4W19cP1fXC81o4YMyL+Kaqh9X0OPLeWnjONAh0U/Z2CIXBqhJHI+DoNXmDACXyuWPPxg==}
     peerDependencies:
       vue: '>=2.7 || >=3'
+
+  '@vee-validate/zod@4.14.7':
+    resolution: {integrity: sha512-UD0Tfyz1cKKd7BinnUztqKL+oeMjg/T4ZEguN/uZV4DsR9z7gdrD0lOuOU7aVl9UpVK6NM7MhDka35Lj7b/DTw==}
 
   '@vercel/nft@0.27.6':
     resolution: {integrity: sha512-mwuyUxskdcV8dd7N7JnxBgvFEz1D9UOePI/WyLLzktv6HSCwgPNQGit/UJ2IykAWGlypKw4pBQjOKWvIbXITSg==}
@@ -4423,6 +4438,14 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
+  valibot@1.0.0-beta.8:
+    resolution: {integrity: sha512-OPAwJZtowb0j91b+bd77+ny7D1VVzsCzD7Jl9waLUlMprTsfI9Y3HHbW3hAQD7wKDKHsmGEesuiYWaYvcZL2wg==}
+    peerDependencies:
+      typescript: '>=5'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
 
@@ -4682,6 +4705,9 @@ packages:
   zip-stream@6.0.1:
     resolution: {integrity: sha512-zK7YHHz4ZXpW89AHXUPbQVGKI7uvkd3hzusTdotCg1UxyaVtg0zFJSTfW/Dq5f7OBBVnq6cZIaC8Ti4hb6dtCA==}
     engines: {node: '>= 14'}
+
+  zod@3.23.8:
+    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
 
 snapshots:
 
@@ -6256,6 +6282,14 @@ snapshots:
       hookable: 5.5.3
       unhead: 1.11.13
       vue: 3.5.13(typescript@5.7.2)
+
+  '@vee-validate/zod@4.14.7(vue@3.5.13(typescript@5.7.2))':
+    dependencies:
+      type-fest: 4.28.1
+      vee-validate: 4.14.7(vue@3.5.13(typescript@5.7.2))
+      zod: 3.23.8
+    transitivePeerDependencies:
+      - vue
 
   '@vercel/nft@0.27.6':
     dependencies:
@@ -9657,6 +9691,10 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
+  valibot@1.0.0-beta.8(typescript@5.7.2):
+    optionalDependencies:
+      typescript: 5.7.2
+
   validate-npm-package-license@3.0.4:
     dependencies:
       spdx-correct: 3.2.0
@@ -9894,3 +9932,5 @@ snapshots:
       archiver-utils: 5.0.2
       compress-commons: 6.0.2
       readable-stream: 4.5.2
+
+  zod@3.23.8: {}
