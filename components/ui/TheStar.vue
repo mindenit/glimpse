@@ -3,7 +3,7 @@
     <div
       v-for="i in maxStars"
       :key="i"
-      :class="['star', i <= (isHovered ? hoverValue : value) ? 'filled' : '']"
+      :class="['star', { filled: i <= (isHovered ? hoverValue : value) }]"
       @click="updateRating(i)"
       @mouseover="hoverRating(i)"
       @mouseleave="resetHover"
@@ -33,13 +33,9 @@ export default {
     const isHovered = ref(false)
     const hoverValue = ref(0)
 
-    // Watch for external updates to the modelValue
-    watch(
-      () => props.modelValue,
-      (newVal) => {
-        value.value = newVal
-      }
-    )
+    watch(() => props.modelValue, (newVal) => {
+      value.value = newVal
+    })
 
     const updateRating = (newRating) => {
       value.value = newRating
@@ -78,6 +74,11 @@ export default {
   font-size: 24px;
   cursor: pointer;
   color: #ddd;
+  transition: transform 0.2s ease;
+}
+
+.star:hover {
+  transform: scale(1.2);
 }
 
 .filled {
