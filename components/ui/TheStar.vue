@@ -1,44 +1,40 @@
-<script setup>
-const props = defineProps({
-  modelValue: {
-    type: Number,
-    default: 0,
-  },
-  maxStars: {
-    type: Number,
-    default: 5,
-  },
-});
+<script lang="ts" setup>
+interface StarRatingProps {
+  modelValue?: number
+  maxStars?: number
+}
 
-const emit = defineEmits(['update:modelValue']);
+const props = defineProps<StarRatingProps>()
+const { modelValue = 0, maxStars = 5 } = props
 
-const value = ref(props.modelValue);
-const isHovered = ref(false);
-const hoverValue = ref(0);
+const emit = defineEmits<{
+  (e: 'update:modelValue', newValue: number): void
+}>()
 
-const displayedValue = computed(() => (isHovered.value ? hoverValue.value : value.value));
+const value = useVModel(props, 'modelValue', emit, {
+  defaultValue: modelValue,
+})
 
-watch(
-  () => props.modelValue,
-  (newVal) => {
-    value.value = newVal;
-  },
-);
+const isHovered = ref(false)
+const hoverValue = ref(0)
 
-const updateRating = (newRating) => {
-  value.value = newRating;
-  emit('update:modelValue', newRating);
-};
+const displayedValue = computed(() =>
+  isHovered.value ? hoverValue.value : value.value,
+)
 
-const hoverRating = (hoverVal) => {
-  isHovered.value = true;
-  hoverValue.value = hoverVal;
-};
+const updateRating = (newRating: number) => {
+  value.value = newRating
+}
+
+const hoverRating = (hoverVal: number) => {
+  isHovered.value = true
+  hoverValue.value = hoverVal
+}
 
 const resetHover = () => {
-  isHovered.value = false;
-  hoverValue.value = 0;
-};
+  isHovered.value = false
+  hoverValue.value = 0
+}
 </script>
 
 <template>
@@ -66,7 +62,7 @@ const resetHover = () => {
   font-size: 24px;
   cursor: pointer;
   color: #ddd;
-  transition: transform 0.2s ease, color 0.2s ease;
+  transition: transform 0.2s ease color 0.2s ease;
 }
 
 .star:hover {
