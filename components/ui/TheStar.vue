@@ -1,9 +1,52 @@
+<script setup>
+const props = defineProps({
+  modelValue: {
+    type: Number,
+    default: 0,
+  },
+  maxStars: {
+    type: Number,
+    default: 5,
+  },
+});
+
+const emit = defineEmits(['update:modelValue']);
+
+const value = ref(props.modelValue);
+const isHovered = ref(false);
+const hoverValue = ref(0);
+
+const displayedValue = computed(() => (isHovered.value ? hoverValue.value : value.value));
+
+watch(
+  () => props.modelValue,
+  (newVal) => {
+    value.value = newVal;
+  },
+);
+
+const updateRating = (newRating) => {
+  value.value = newRating;
+  emit('update:modelValue', newRating);
+};
+
+const hoverRating = (hoverVal) => {
+  isHovered.value = true;
+  hoverValue.value = hoverVal;
+};
+
+const resetHover = () => {
+  isHovered.value = false;
+  hoverValue.value = 0;
+};
+</script>
+
 <template>
   <div class="star-rating">
     <div
       v-for="i in maxStars"
       :key="i"
-      :class="['star', { filled: i <= (isHovered ? hoverValue : value) }]"
+      :class="['star', { filled: i <= displayedValue }]"
       @click="updateRating(i)"
       @mouseover="hoverRating(i)"
       @mouseleave="resetHover"
@@ -12,60 +55,6 @@
     </div>
   </div>
 </template>
-
-<script>
-import { ref, watch } from 'vue'
-
-export default {
-  props: {
-    modelValue: {
-      type: Number,
-      default: 0,
-    },
-    maxStars: {
-      type: Number,
-      default: 5,
-    },
-  },
-  emits: ['update:modelValue'],
-  setup(props, { emit }) {
-    const value = ref(props.modelValue)
-    const isHovered = ref(false)
-    const hoverValue = ref(0)
-
-    watch(
-      () => props.modelValue,
-      (newVal) => {
-        value.value = newVal
-      },
-    )
-
-    const updateRating = (newRating) => {
-      value.value = newRating
-      emit('update:modelValue', newRating)
-    }
-
-    const hoverRating = (hoverVal) => {
-      isHovered.value = true
-      hoverValue.value = hoverVal
-    }
-
-    const resetHover = () => {
-      isHovered.value = false
-      hoverValue.value = 0
-    }
-
-    return {
-      value,
-      isHovered,
-      hoverValue,
-      updateRating,
-      hoverRating,
-      resetHover,
-    }
-  },
-}
-</script>
 
 <style scoped>
 .star-rating {
@@ -77,7 +66,7 @@ export default {
   font-size: 24px;
   cursor: pointer;
   color: #ddd;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .star:hover {
