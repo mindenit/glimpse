@@ -62,7 +62,9 @@ const resetHover = () => {
   font-size: 24px;
   cursor: pointer;
   color: #ddd;
-  transition: transform 0.2s ease color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
 }
 
 .star:hover {
