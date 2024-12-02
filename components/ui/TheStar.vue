@@ -1,10 +1,12 @@
 <script lang="ts" setup>
 interface StarRatingProps {
-  modelValue: number
-  maxStars: number
+  modelValue?: number
+  maxStars?: number
 }
 
-const props = defineProps<StarRatingProps>()
+const props = withDefaults(defineProps<StarRatingProps>(), {
+  maxStars: 5,
+})
 
 const emit = defineEmits<{
   (e: 'update:modelValue', newValue: number): void
@@ -35,7 +37,7 @@ const resetHover = () => {
 <template>
   <div class="star-rating">
     <div
-      v-for="i in props.maxStars"
+      v-for="i in maxStars"
       :key="i"
       :class="['star', { filled: i <= displayedValue }]"
       @click="emit('update:modelValue', i)"
