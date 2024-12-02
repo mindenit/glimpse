@@ -1,30 +1,25 @@
 <script lang="ts" setup>
 interface StarRatingProps {
-  modelValue?: number
-  maxStars?: number
+  modelValue: number
+  maxStars: number
 }
 
 const props = defineProps<StarRatingProps>()
-const { modelValue = 0, maxStars = 5 } = props
 
 const emit = defineEmits<{
   (e: 'update:modelValue', newValue: number): void
 }>()
 
-const value = useVModel(props, 'modelValue', emit, {
-  defaultValue: modelValue,
+const model = useVModel(props, 'modelValue', emit, {
+  defaultValue: 0,
 })
 
 const isHovered = ref(false)
 const hoverValue = ref(0)
 
 const displayedValue = computed(() =>
-  isHovered.value ? hoverValue.value : value.value,
+  isHovered.value ? hoverValue.value : model.value,
 )
-
-const updateRating = (newRating: number) => {
-  value.value = newRating
-}
 
 const hoverRating = (hoverVal: number) => {
   isHovered.value = true
@@ -40,10 +35,10 @@ const resetHover = () => {
 <template>
   <div class="star-rating">
     <div
-      v-for="i in maxStars"
+      v-for="i in props.maxStars"
       :key="i"
       :class="['star', { filled: i <= displayedValue }]"
-      @click="updateRating(i)"
+      @click="emit('update:modelValue', i)"
       @mouseover="hoverRating(i)"
       @mouseleave="resetHover"
     >
