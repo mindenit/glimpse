@@ -194,7 +194,7 @@ const onSubmit = handleSubmit(
       </Button>
 
       <div>
-        <p class="text-white">
+        <p class="text-black dark:text-white">
           Вже є акаунт?
           <NuxtLink to="/login" class="text-royal-blue-500 hover:underline">
             Авторизуватись

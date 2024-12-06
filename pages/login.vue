@@ -119,7 +119,7 @@ const onSubmit = handleSubmit(
       </Button>
 
       <div>
-        <p class="text-white">
+        <p class="text-black dark:text-white">
           Немає акаунту?
           <NuxtLink to="/signup" class="text-royal-blue-500 hover:underline">
             Зареєструватись
