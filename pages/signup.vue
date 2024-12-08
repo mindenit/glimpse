@@ -26,7 +26,7 @@ const validationSchema = toTypedSchema(
         .max(20, 'Логін не може містити більше 20 символів')
         .regex(
           /^[a-zA-Z0-9_]+$/,
-          'Логін може містити тільки літери, цифри і _'
+          'Логін може містити тільки літери, цифри і _',
         ),
       email: z.string().email('Неправильний формат електронної пошти'),
       password: z.string().min(6, 'Пароль має містити мінімум 6 символів'),
@@ -35,7 +35,7 @@ const validationSchema = toTypedSchema(
     .refine((data) => data.password === data.confirmPassword, {
       message: 'Паролі не співпадають',
       path: ['confirmPassword'],
-    })
+    }),
 )
 
 const { handleSubmit, resetForm, values } = useForm({
@@ -52,7 +52,7 @@ const isDisabled = computed(
     !values.login?.trim() ||
     !values.email?.trim() ||
     !values.password?.trim() ||
-    !values.confirmPassword
+    !values.confirmPassword,
 )
 
 const inputType = computed(() => ({
@@ -80,7 +80,7 @@ const onSubmit = handleSubmit(
   },
   (errors) => {
     console.error('Validation errors:', errors)
-  }
+  },
 )
 </script>
 

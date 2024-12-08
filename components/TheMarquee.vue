@@ -14,12 +14,14 @@ defineProps<{
 </script>
 
 <template>
-  <div class="marquee-container">
-    <div class="marquee">
+  <div
+    class="overflow-hidden whitespace-nowrap w-screen bg-black/10 dark:bg-white/10 backdrop-blur-lg rounded-xl p-5"
+  >
+    <div class="marqueeScroll animate-marqueeScroll inline-flex">
       <div
         v-for="user in users.concat(users)"
         :key="user.id"
-        class="w-72 h-44 bg-gray-100 rounded-xl p-4 flex-col inline-block mr-4"
+        class="w-72 h-32 bg-gray-100 rounded-xl p-4 flex-col inline-block mr-4"
       >
         <div class="flex items-center gap-2 pb-1">
           <Avatar
@@ -44,30 +46,10 @@ defineProps<{
 <style scoped>
 .text-ellipsis {
   display: -webkit-box;
-  -webkit-line-clamp: 8;
+  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal;
-}
-
-.marquee-container {
-  overflow: hidden;
-  white-space: nowrap;
-  width: 100vw;
-}
-
-.marquee {
-  display: inline-flex;
-  animation: marquee-scroll 40s linear infinite;
-}
-
-@keyframes marquee-scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
 }
 </style>

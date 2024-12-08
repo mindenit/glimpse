@@ -21,7 +21,7 @@ const validationSchema = toTypedSchema(
   z.object({
     email: z.string().email('Неправильний формат електронної пошти'),
     password: z.string().min(6, 'Пароль має містити мінімум 6 символів'),
-  })
+  }),
 )
 
 const { handleSubmit, resetForm, values } = useForm({
@@ -31,15 +31,15 @@ const { handleSubmit, resetForm, values } = useForm({
 const isPasswordVisible = ref(false)
 
 const isDisabled = computed(
-  () => !values.email?.trim() || !values.password?.trim()
+  () => !values.email?.trim() || !values.password?.trim(),
 )
 
 const passwordInputType = computed(() =>
-  isPasswordVisible.value ? 'text' : 'password'
+  isPasswordVisible.value ? 'text' : 'password',
 )
 
 const passwordToggleIcon = computed(() =>
-  isPasswordVisible.value ? 'ph:eye-slash' : 'ph:eye'
+  isPasswordVisible.value ? 'ph:eye-slash' : 'ph:eye',
 )
 
 const togglePasswordVisibility = () => {
@@ -53,7 +53,7 @@ const onSubmit = handleSubmit(
   },
   (errors) => {
     console.error('Validation errors:', errors)
-  }
+  },
 )
 </script>
 

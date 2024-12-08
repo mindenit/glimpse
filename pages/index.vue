@@ -1,15 +1,11 @@
 <script lang="ts" setup>
 import { Text, Heading, Button } from '@mindenit/ui'
-import Marquee from '~/components/Marquee.vue'
+import Marquee from '~/components/TheMarquee.vue'
 import { users } from '~/assets/mockDataUsers'
 
 definePageMeta({
   layout: 'main',
 })
-
-const router = useRouter()
-
-const redirectToSignup = () => router.push('/signup')
 </script>
 
 <template>
@@ -18,7 +14,7 @@ const redirectToSignup = () => router.push('/signup')
   >
     <div class="space-y-7 mb-20">
       <Text
-        class="px-10 py-2 mb-8 border rounded-md border-gray-500 inline-block"
+        class="px-10 py-2 mb-8 border rounded-3xl inline-block shadow-md bg-white/70 border-gray-300 text-gray-800 dark:bg-gray-800/70 dark:border-gray-600 dark:text-gray-200"
         size="large"
       >
         Вітаємо в бета версії!
@@ -31,13 +27,8 @@ const redirectToSignup = () => router.push('/signup')
         спеціалістів або демонструйте свої навички тисячам клієнтів. Все просто,
         прозоро й швидко!
       </Text>
-      <Button
-        class="mt-10"
-        size="lg"
-        variant="primary"
-        @click="redirectToSignup"
-      >
-        Почати безкоштовно
+      <Button class="mt-10" size="lg" variant="primary" :as-child="true">
+        <NuxtLink to="/signup"> Почати безкоштовно </NuxtLink>
       </Button>
     </div>
     <Marquee :users="users" />
