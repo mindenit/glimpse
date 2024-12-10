@@ -22,37 +22,37 @@ const handleAvatarClick = () => {
 
 <template>
   <header
-    class="grid grid-cols-[auto_auto] md:grid-cols-[1fr_auto_1fr] w-full items-center relative px-4 py-2"
+    class="relative grid w-full grid-cols-[auto_auto] items-center px-4 py-2 md:grid-cols-[1fr_auto_1fr]"
   >
     <div class="flex items-center">
       <TheLogo />
     </div>
 
     <div
-      class="z-50 flex justify-center items-center h-14 px-10 bg-fiord-50 border-fiord-300 dark:bg-fiord-900 rounded-xl border dark:border-fiord-700 gap-10 max-md:fixed max-md:bottom-4 max-md:left-1/2 max-md:transform max-md:-translate-x-1/2 dark:text-white"
+      class="z-50 flex h-14 items-center justify-center gap-10 rounded-xl border border-fiord-300 bg-fiord-50 px-10 dark:border-fiord-700 dark:bg-fiord-900 dark:text-white max-md:fixed max-md:bottom-4 max-md:left-1/2 max-md:-translate-x-1/2 max-md:transform"
     >
       <NuxtLink
         v-for="link in links"
         :key="link.path"
         :to="link.path"
-        class="hover:text-royal-blue-500 transition"
+        class="transition hover:text-royal-blue-500"
       >
         {{ link.name }}
       </NuxtLink>
     </div>
 
-    <div class="flex justify-end items-center gap-4">
+    <div class="flex items-center justify-end gap-4">
       <ThemeSwitcher />
 
       <div
-        class="w-12 h-12 rounded-full overflow-hidden cursor-pointer flex justify-center items-center"
+        class="flex h-12 w-12 cursor-pointer items-center justify-center overflow-hidden rounded-full"
         @click="handleAvatarClick"
       >
         <Avatar
           size="40px"
           :url="'/default-avatar.png'"
           alt="User Avatar"
-          class="w-full h-full object-cover"
+          class="h-full w-full object-cover"
         />
       </div>
     </div>

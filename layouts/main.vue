@@ -1,8 +1,8 @@
 <template>
-  <div class="flex flex-col w-full dark:text-white">
-    <div class="flex flex-col pt-5 container mx-auto px-4 h-dvh gap-5">
+  <div class="flex w-full flex-col dark:text-white">
+    <div class="container mx-auto flex h-dvh flex-col gap-5 px-4 pt-5">
       <TheNavbar />
-      <div class="flex flex-col pb-[100px] h-full md:pb-0 gap-5 animate-fadeIn">
+      <div class="flex h-full animate-fadeIn flex-col gap-5 pb-[100px] md:pb-0">
         <slot />
       </div>
     </div>

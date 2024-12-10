@@ -10,11 +10,11 @@ definePageMeta({
 
 <template>
   <main
-    class="container flex flex-col items-center justify-center w-full h-full px-6 py-12 text-center"
+    class="container flex h-full w-full flex-col items-center justify-center px-6 py-12 text-center"
   >
-    <div class="space-y-7 mb-20">
+    <div class="mb-20 space-y-7">
       <Text
-        class="px-10 py-2 mb-8 border rounded-3xl inline-block shadow-md bg-fiord-100 dark:bg-fiord-900 text-black dark:text-white border-fiord-300 dark:border-fiord-700"
+        class="mb-8 inline-block rounded-3xl border border-fiord-300 bg-fiord-100 px-10 py-2 text-black shadow-md dark:border-fiord-700 dark:bg-fiord-900 dark:text-white"
         size="large"
       >
         Вітаємо в бета версії!
@@ -22,7 +22,7 @@ definePageMeta({
       <Heading size="large" class="font-bold text-gray-800">
         Всі бариги в одному місці
       </Heading>
-      <Text size="subtitle" class="text-gray-600 max-w-[585px] px-10 leading-5">
+      <Text size="subtitle" class="max-w-[585px] px-10 leading-5 text-gray-600">
         Надійність — понад усе! Переглядайте реальні відгуки, обирайте найкращих
         спеціалістів або демонструйте свої навички тисячам клієнтів. Все просто,
         прозоро й швидко!

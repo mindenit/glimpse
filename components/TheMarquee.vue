@@ -14,25 +14,25 @@ defineProps<{
 </script>
 
 <template>
-  <div class="overflow-hidden whitespace-nowrap w-screen">
+  <div class="w-screen overflow-hidden whitespace-nowrap">
     <div class="animate-marqueeScroll inline-flex gap-4">
       <div
         v-for="user in users.concat(users)"
         :key="user.id"
-        class="w-72 h-32 bg-fiord-100 dark:bg-fiord-900 text-black dark:text-white rounded-xl p-4 flex-col inline-block border border-fiord-300 dark:border-fiord-700 shadow-lg"
+        class="inline-block h-32 w-72 flex-col rounded-xl border border-fiord-300 bg-fiord-100 p-4 text-black shadow-lg dark:border-fiord-700 dark:bg-fiord-900 dark:text-white"
       >
         <div class="flex items-center gap-2 pb-1">
           <Avatar
             :url="user.avatar || '/default-avatar.png'"
             alt="User Avatar"
           />
-          <Text size="small" class="font-semibold text-sm">{{
+          <Text size="small" class="text-sm font-semibold">{{
             user.username
           }}</Text>
         </div>
         <Text
           size="small"
-          class="w-full overflow-ellipsis whitespace-normal overflow-hidden text-left line-clamp-3"
+          class="line-clamp-3 w-full overflow-hidden overflow-ellipsis whitespace-normal text-left"
         >
           {{ user.comment }}
         </Text>

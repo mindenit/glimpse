@@ -5,7 +5,7 @@ import { Text } from '@mindenit/ui'
 <template>
   <NuxtLink to="/">
     <div class="flex items-center gap-2">
-      <div class="overflow-hidden size-8 rounded-md">
+      <div class="size-8 overflow-hidden rounded-md">
         <img src="/mindenit.jpg" alt="Logo" />
       </div>
       <Text size="large" class="select-none">Glimpse</Text>
