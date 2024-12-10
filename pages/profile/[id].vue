@@ -109,13 +109,13 @@ const mockData: MockData = {
 <template>
   <main class="dark:text-white">
     <div
-      class="container max-w-screen-2xl mx-auto p-2 flex flex-col md:flex-row gap-5"
+      class="container mx-auto flex max-w-screen-2xl flex-col gap-5 p-2 md:flex-row"
     >
-      <section class="flex flex-col p-2 basis-1/3">
+      <section class="flex basis-1/3 flex-col p-2">
         <div
-          class="dark:bg-fiord-900 w-full h-[150px] rounded-2xl bg-[url('https://picsum.photos/400/400')] bg-no-repeat bg-cover relative flex items-end p-4"
+          class="relative flex h-[150px] w-full items-end rounded-2xl bg-[url('https://picsum.photos/400/400')] bg-cover bg-no-repeat p-4 dark:bg-fiord-900"
         >
-          <div class="inline-flex gap-1 absolute top-4 right-4">
+          <div class="absolute right-4 top-4 inline-flex gap-1">
             <IconButton variant="danger" icon="ph:hammer" />
             <IconButton icon="ph:pen" />
           </div>
@@ -123,9 +123,9 @@ const mockData: MockData = {
             size="80px"
             :fallback="mockData.firstname"
             url="https://picsum.photos/80/80"
-            class="absolute bottom-[-60px] border-8 border-fiord-900 !size-[120px]"
+            class="absolute bottom-[-60px] !size-[120px] border-8 border-fiord-900"
           />
-          <Button class="absolute right-4 bottom-[-50px]">Зв'язатись</Button>
+          <Button class="absolute bottom-[-50px] right-4">Зв'язатись</Button>
         </div>
         <div class="flex flex-col gap-5">
           <div class="mt-16 flex flex-col">
@@ -139,15 +139,15 @@ const mockData: MockData = {
           <div>
             <Text size="paragraph"> {{ mockData.description }}</Text>
           </div>
-          <div class="dark:bg-fiord-900 rounded-xl p-4 flex flex-col gap-4">
-            <Heading size="small" class="!text-base !font-medium text-center">
+          <div class="flex flex-col gap-4 rounded-xl p-4 dark:bg-fiord-900">
+            <Heading size="small" class="text-center !text-base !font-medium">
               Статистика
             </Heading>
             <div class="flex flex-col justify-between gap-4">
-              <div class="flex flex-col lg:flex-row gap-4">
+              <div class="flex flex-col gap-4 lg:flex-row">
                 <!-- Reviews Block -->
                 <div
-                  class="flex-1 flex flex-col items-center justify-center bg-fiord-800 rounded-lg py-4 hover:scale-105 transition-transform duration-300 cursor-pointer"
+                  class="flex flex-1 cursor-pointer flex-col items-center justify-center rounded-lg bg-fiord-800 py-4 transition-transform duration-300 hover:scale-105"
                 >
                   <Heading size="small" class="!text-christi-400">{{
                     mockData.feedbacks.length
@@ -156,7 +156,7 @@ const mockData: MockData = {
                 </div>
                 <!-- Complaints Block -->
                 <div
-                  class="flex-1 flex flex-col items-center justify-center bg-fiord-800 rounded-lg py-4 hover:scale-105 transition-transform duration-300 cursor-pointer"
+                  class="flex flex-1 cursor-pointer flex-col items-center justify-center rounded-lg bg-fiord-800 py-4 transition-transform duration-300 hover:scale-105"
                 >
                   <Heading size="small" class="!text-amaranth-400">{{
                     mockData.numOfComplaints
@@ -166,7 +166,7 @@ const mockData: MockData = {
               </div>
               <div>
                 <div
-                  class="flex-1 flex flex-col items-center justify-center bg-fiord-800 rounded-lg py-4 hover:scale-105 transition-transform duration-300 cursor-pointer"
+                  class="flex flex-1 cursor-pointer flex-col items-center justify-center rounded-lg bg-fiord-800 py-4 transition-transform duration-300 hover:scale-105"
                 >
                   <Heading size="small" class="!text-royal-blue-300">{{
                     mockData.numOfRequests
@@ -176,7 +176,7 @@ const mockData: MockData = {
               </div>
             </div>
           </div>
-          <div class="dark:bg-fiord-900 rounded-xl p-4 flex flex-col gap-1">
+          <div class="flex flex-col gap-1 rounded-xl p-4 dark:bg-fiord-900">
             <Heading size="small" class="!text-base !font-medium"
               >Послуги</Heading
             >
@@ -184,15 +184,15 @@ const mockData: MockData = {
               <Badge
                 v-for="(service, index) in mockData.services"
                 :key="index"
-                class="hover:scale-105 transition-transform duration-300 cursor-pointer"
+                class="cursor-pointer transition-transform duration-300 hover:scale-105"
                 >{{ service }}</Badge
               >
             </div>
           </div>
         </div>
       </section>
-      <section class="flex flex-col px-5 gap-5 basis-2/3">
-        <div class="dark:bg-fiord-900 w-full rounded-2xl p-4">
+      <section class="flex basis-2/3 flex-col gap-5 px-5">
+        <div class="w-full rounded-2xl p-4 dark:bg-fiord-900">
           <Heading size="small" class="mb-4">Залиште відгук</Heading>
           <TextAreaRoot class="mb-4">
             <TextAreaInput placeholder="Ваш відгук" />
@@ -204,9 +204,9 @@ const mockData: MockData = {
         <div
           v-for="(feedback, index) in mockData.feedbacks"
           :key="index"
-          class="dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 w-full rounded-2xl p-4 hover:scale-105 transition-transform duration-300"
+          class="w-full rounded-2xl p-4 transition-transform duration-300 hover:scale-105 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800"
         >
-          <div class="inline-flex gap-2 items-center">
+          <div class="inline-flex items-center gap-2">
             <Avatar
               size="32px"
               fallback="JD"

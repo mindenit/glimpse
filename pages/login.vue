@@ -58,9 +58,9 @@ const onSubmit = handleSubmit(
 </script>
 
 <template>
-  <main class="flex w-full h-screen items-center justify-center">
+  <main class="flex h-screen w-full items-center justify-center">
     <form
-      class="flex flex-col items-center justify-center w-[400px] h-fit space-y-4 rounded-xl dark:bg-fiord-900 p-5 border dark:border-fiord-700"
+      class="flex h-fit w-[400px] flex-col items-center justify-center space-y-4 rounded-xl border p-5 dark:border-fiord-700 dark:bg-fiord-900"
       @submit="onSubmit"
     >
       <Heading size="medium">Логін</Heading>
