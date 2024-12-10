@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { Text, Heading, Button } from '@mindenit/ui'
-import Marquee from '~/components/TheMarquee.vue'
+import { Button, Heading, Text } from '@mindenit/ui'
 import { users } from '~/assets/mockDataUsers'
+import Marquee from '~/components/TheMarquee.vue'
 
 definePageMeta({
   layout: 'main',
@@ -14,7 +14,7 @@ definePageMeta({
   >
     <div class="space-y-7 mb-20">
       <Text
-        class="px-10 py-2 mb-8 border rounded-3xl inline-block shadow-md bg-white/70 border-gray-300 text-gray-800 dark:bg-gray-800/70 dark:border-gray-600 dark:text-gray-200"
+        class="px-10 py-2 mb-8 border rounded-3xl inline-block shadow-md bg-fiord-100 dark:bg-fiord-900 text-black dark:text-white border-fiord-300 dark:border-fiord-700"
         size="large"
       >
         Вітаємо в бета версії!
