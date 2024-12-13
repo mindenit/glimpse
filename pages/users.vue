@@ -31,12 +31,10 @@ watch(filteredUsers, () => {
 })
 
 const loadMore = () => {
-  console.log('Loading more users...')
   const nextPageUsers = filteredUsers.value.slice(
     currentPage.value * itemsPerPage,
     (currentPage.value + 1) * itemsPerPage,
   )
-  console.log('New users:', nextPageUsers)
   displayedUsers.value = [...displayedUsers.value, ...nextPageUsers]
   currentPage.value++
 }
