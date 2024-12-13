@@ -4,5 +4,5 @@
 @tailwind utilities;
 
 #__nuxt {
-  @apply flex h-dvh w-full flex-col;
+  @apply flex flex-col w-full h-dvh;
 }

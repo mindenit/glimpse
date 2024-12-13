@@ -31,10 +31,12 @@ watch(filteredUsers, () => {
 })
 
 const loadMore = () => {
+  console.log('Loading more users...')
   const nextPageUsers = filteredUsers.value.slice(
     currentPage.value * itemsPerPage,
     (currentPage.value + 1) * itemsPerPage,
   )
+  console.log('New users:', nextPageUsers)
   displayedUsers.value = [...displayedUsers.value, ...nextPageUsers]
   currentPage.value++
 }
@@ -63,7 +65,7 @@ onBeforeUnmount(() => {
   <main class="container flex h-full w-full flex-col items-center text-center">
     <div class="w-full py-6">
       <SearchField
-        v-model:model-value="searchQuery"
+        v-model:modelValue="searchQuery"
         placeholder="Пошук працює за іменем, юзернеймом або описом профіля..."
       />
     </div>
@@ -75,7 +77,7 @@ onBeforeUnmount(() => {
         :key="user.id"
         :name="user.name"
         :username="user.username"
-        :avatar-url="user.avatar"
+        :avatarUrl="user.avatar"
         :description="user.description"
         :stars="user.stars"
       />
