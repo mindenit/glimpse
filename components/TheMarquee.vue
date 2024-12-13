@@ -15,7 +15,7 @@ defineProps<{
 
 <template>
   <div class="w-screen overflow-hidden whitespace-nowrap">
-    <div class="animate-marqueeScroll inline-flex gap-4">
+    <div class="inline-flex animate-marqueeScroll gap-4">
       <div
         v-for="user in users.concat(users)"
         :key="user.id"
