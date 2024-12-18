@@ -2,10 +2,6 @@
 import { Button, Heading, Text } from '@mindenit/ui'
 import { users } from '~/assets/mockDataUsers'
 import Marquee from '~/components/TheMarquee.vue'
-
-definePageMeta({
-  layout: 'main',
-})
 </script>
 
 <template>

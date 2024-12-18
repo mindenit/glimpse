@@ -1,20 +1,22 @@
 <script lang="ts" setup>
 import { Avatar, Text } from '@mindenit/ui'
 import TheStar from './ui/TheStar.vue'
-defineProps({
-  name: String,
-  username: String,
-  avatarUrl: String,
-  description: String,
-  stars: {
-    type: Number,
-    default: 0,
-  },
-})
+
+interface User {
+  id: number
+  name: string
+  username: string
+  avatarUrl: string
+  description: string
+  stars: number
+}
+
+defineProps<User>()
 </script>
 
 <template>
-  <div
+  <NuxtLink
+    :to="`/profile/${id}`"
     class="h-full w-full rounded-3xl border border-fiord-300 bg-fiord-100 p-4 px-4 py-4 text-black shadow-lg dark:border-fiord-700 dark:bg-fiord-900 dark:text-white sm:px-6 sm:py-6"
   >
     <div class="flex items-start justify-between gap-4 pb-2 sm:gap-3">
@@ -48,5 +50,5 @@ defineProps({
     >
       {{ description }}
     </Text>
-  </div>
+  </NuxtLink>
 </template>

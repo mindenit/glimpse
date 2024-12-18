@@ -2,10 +2,6 @@
 import { SearchField } from '@mindenit/ui'
 import { users as mockUsers } from '~/assets/mockDataUsers'
 
-definePageMeta({
-  layout: 'main',
-})
-
 const searchQuery = ref('')
 const itemsPerPage = 10
 const currentPage = ref(1)
@@ -73,6 +69,7 @@ onBeforeUnmount(() => {
       <UserCard
         v-for="user in displayedUsers"
         :key="user.id"
+        :id="user.id"
         :name="user.name"
         :username="user.username"
         :avatarUrl="user.avatar"
