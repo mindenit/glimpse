@@ -1,9 +1,5 @@
 <script lang="ts" setup>
-import { AccordionRoot, AccordionItem, Heading, Text } from '@mindenit/ui'
-
-definePageMeta({
-  layout: 'main',
-})
+import { AccordionRoot, AccordionItem, Heading } from '@mindenit/ui'
 </script>
 
 <template>
@@ -11,64 +7,47 @@ definePageMeta({
     class="container flex h-full w-full flex-col items-center px-6 py-12 text-center"
   >
     <div class="space-y-4 pb-16">
-      <Text size="subtitle">ACTIVECAMPAIGH COMMON FAQS</Text>
       <Heading size="large">Frequently Asked Questions</Heading>
     </div>
-    <AccordionRoot type="single">
+    <AccordionRoot type="multiple">
       <AccordionItem value="item-1">
-        <template #title>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </template>
+        <template #title
+          >Can I ask questions after receiving my homework help?</template
+        >
         <template #content>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae quia
-          voluptatum quis, est possimus ad aperiam. Veritatis ipsa dolorem,
-          beatae quis alias officiis deleniti sunt provident vel reprehenderit
-          itaque hic. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Quae quia voluptatum quis, est possimus ad aperiam. Veritatis ipsa
-          dolorem, beatae quis alias officiis deleniti sunt provident vel
-          reprehenderit itaque hic.
+          Yes, you can contact your tutor after receiving your completed
+          homework to ask questions or for clarification. We encourage
+          communication to ensure you fully understand the work provided.
         </template>
       </AccordionItem>
       <AccordionItem value="item-2">
-        <template #title>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </template>
+        <template #title
+          >What types of homework assignments can I get help with?</template
+        >
         <template #content>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae quia
-          voluptatum quis, est possimus ad aperiam. Veritatis ipsa dolorem,
-          beatae quis alias officiis deleniti sunt provident vel reprehenderit
-          itaque hic. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Quae quia voluptatum quis, est possimus ad aperiam. Veritatis ipsa
-          dolorem, beatae quis alias officiis deleniti sunt provident vel
-          reprehenderit itaque hic.
+          We provide help with a wide variety of homework assignments, including
+          problem-solving tasks, essays, lab reports, programming assignments,
+          and much more. No matter the subject, we have experts ready to assist
+          you.
         </template>
       </AccordionItem>
       <AccordionItem value="item-3">
-        <template #title>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </template>
+        <template #title> Is the help provided confidential?</template>
         <template #content>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae quia
-          voluptatum quis, est possimus ad aperiam. Veritatis ipsa dolorem,
-          beatae quis alias officiis deleniti sunt provident vel reprehenderit
-          itaque hic. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Quae quia voluptatum quis, est possimus ad aperiam. Veritatis ipsa
-          dolorem, beatae quis alias officiis deleniti sunt provident vel
-          reprehenderit itaque hic.
+          Yes, we take your privacy and security very seriously. All personal
+          and payment information is encrypted, and we ensure that your homework
+          and communications with tutors remain confidential. Our tutors are
+          vetted to ensure a secure and reliable experience.
         </template>
       </AccordionItem>
       <AccordionItem value="item-4">
         <template #title>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Can I get help with a specific part of my homework?
         </template>
         <template #content>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae quia
-          voluptatum quis, est possimus ad aperiam. Veritatis ipsa dolorem,
-          beatae quis alias officiis deleniti sunt provident vel reprehenderit
-          itaque hic. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Quae quia voluptatum quis, est possimus ad aperiam. Veritatis ipsa
-          dolorem, beatae quis alias officiis deleniti sunt provident vel
-          reprehenderit itaque hic.
+          Yes, you can request assistance with specific parts of your homework.
+          Whether it's a particular question or section, you can submit the
+          details and our tutors will help with that part of your assignment.
         </template>
       </AccordionItem>
     </AccordionRoot>
