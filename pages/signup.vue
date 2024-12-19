@@ -17,6 +17,10 @@ import {
   TextFieldSlot,
 } from '@mindenit/ui'
 
+definePageMeta({
+  layout: false,
+})
+
 const validationSchema = toTypedSchema(
   z
     .object({
