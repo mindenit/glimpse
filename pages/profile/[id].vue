@@ -123,7 +123,7 @@ const mockData: MockData = {
             size="80px"
             :fallback="mockData.firstname"
             url="https://picsum.photos/80/80"
-            class="absolute bottom-[-60px] !size-[120px] border-8 border-fiord-900"
+            class="absolute bottom-[-60px] !size-[120px] border-8 bg-fiord-200 dark:border-fiord-900"
           />
           <Button class="absolute bottom-[-50px] right-4">Зв'язатись</Button>
         </div>
