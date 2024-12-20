@@ -7,47 +7,62 @@ import { AccordionRoot, AccordionItem, Heading } from '@mindenit/ui'
     class="container flex h-full w-full flex-col items-center px-6 py-12 text-center"
   >
     <div class="space-y-4 pb-16">
-      <Heading size="large">Frequently Asked Questions</Heading>
+      <Heading size="medium">Frequently Asked Questions</Heading>
     </div>
     <AccordionRoot type="multiple">
       <AccordionItem value="item-1">
-        <template #title
-          >Can I ask questions after receiving my homework help?</template
-        >
+        <template #title>
+          Чи можу я залишатися анонімним на платформі?
+        </template>
         <template #content>
-          Yes, you can contact your tutor after receiving your completed
-          homework to ask questions or for clarification. We encourage
-          communication to ensure you fully understand the work provided.
+          <div class="text-left">
+            Так, наша платформа підтримує максимальну анонімність. Ви можете
+            працювати, не розкриваючи своїх персональних даних. Однак для
+            забезпечення безпеки угод ми пропонуємо систему верифікації, яка
+            гарантує довіру між виконавцями та клієнтами. Ваші дані зберігаються
+            в надійному цифровому сховищі та ніколи не передаються третім
+            сторонам.
+          </div>
         </template>
       </AccordionItem>
       <AccordionItem value="item-2">
-        <template #title
-          >What types of homework assignments can I get help with?</template
-        >
+        <template #title> Як зареєструватися на платформі? </template>
         <template #content>
-          We provide help with a wide variety of homework assignments, including
-          problem-solving tasks, essays, lab reports, programming assignments,
-          and much more. No matter the subject, we have experts ready to assist
-          you.
+          <div class="text-left">
+            Щоб зареєструватися, вам потрібно лише вказати електронну пошту або
+            увійти через Google. Процес займає не більше однієї хвилини!
+          </div>
         </template>
       </AccordionItem>
       <AccordionItem value="item-3">
-        <template #title> Is the help provided confidential?</template>
+        <template #title> Що таке "мініпрофіль"? </template>
         <template #content>
-          Yes, we take your privacy and security very seriously. All personal
-          and payment information is encrypted, and we ensure that your homework
-          and communications with tutors remain confidential. Our tutors are
-          vetted to ensure a secure and reliable experience.
+          <div class="text-lef">
+            Мініпрофіль — це ваш персональний профіль, де ви описуєте свої
+            послуги, досвід та навички. Він створюється максимально швидко та
+            дозволяє клієнтам одразу бачити, чим ви можете допомогти.
+          </div>
         </template>
       </AccordionItem>
       <AccordionItem value="item-4">
+        <template #title> Скільки коштує використання платформи? </template>
+        <template #content>
+          <div class="text-left">
+            Реєстрація на платформі та створення мініпрофілю — абсолютно
+            безкоштовні. Ми стягуємо невеликий відсоток з кожної успішної угоди
+            між вами та клієнтом.
+          </div>
+        </template>
+      </AccordionItem>
+      <AccordionItem value="item-5">
         <template #title>
-          Can I get help with a specific part of my homework?
+          Чи потрібно заповнювати багато інформації для початку роботи?
         </template>
         <template #content>
-          Yes, you can request assistance with specific parts of your homework.
-          Whether it's a particular question or section, you can submit the
-          details and our tutors will help with that part of your assignment.
+          <div class="text-left">
+            Ні, ми цінуємо ваш час! Вкажіть лише ключову інформацію про ваші
+            послуги, і ви готові приймати замовлення.
+          </div>
         </template>
       </AccordionItem>
     </AccordionRoot>
