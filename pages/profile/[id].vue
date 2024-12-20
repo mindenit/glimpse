@@ -139,7 +139,9 @@ const mockData: MockData = {
           <div>
             <Text size="paragraph"> {{ mockData.description }}</Text>
           </div>
-          <div class="flex flex-col gap-4 rounded-xl p-4 dark:bg-fiord-900">
+          <div
+            class="flex flex-col gap-4 rounded-xl bg-fiord-100 p-4 dark:bg-fiord-900"
+          >
             <Heading size="small" class="text-center !text-base !font-medium">
               Статистика
             </Heading>
@@ -147,7 +149,7 @@ const mockData: MockData = {
               <div class="flex flex-col gap-4 lg:flex-row">
                 <!-- Reviews Block -->
                 <div
-                  class="flex flex-1 cursor-pointer flex-col items-center justify-center rounded-lg bg-fiord-800 py-4 transition-transform duration-300 hover:scale-105"
+                  class="flex flex-1 cursor-pointer flex-col items-center justify-center rounded-lg bg-fiord-200 py-4 transition-transform duration-300 hover:scale-105 dark:bg-fiord-800"
                 >
                   <Heading size="small" class="!text-christi-400">{{
                     mockData.feedbacks.length
@@ -156,7 +158,7 @@ const mockData: MockData = {
                 </div>
                 <!-- Complaints Block -->
                 <div
-                  class="flex flex-1 cursor-pointer flex-col items-center justify-center rounded-lg bg-fiord-800 py-4 transition-transform duration-300 hover:scale-105"
+                  class="flex flex-1 cursor-pointer flex-col items-center justify-center rounded-lg bg-fiord-200 py-4 transition-transform duration-300 hover:scale-105 dark:bg-fiord-800"
                 >
                   <Heading size="small" class="!text-amaranth-400">{{
                     mockData.numOfComplaints
@@ -166,7 +168,7 @@ const mockData: MockData = {
               </div>
               <div>
                 <div
-                  class="flex flex-1 cursor-pointer flex-col items-center justify-center rounded-lg bg-fiord-800 py-4 transition-transform duration-300 hover:scale-105"
+                  class="flex flex-1 cursor-pointer flex-col items-center justify-center rounded-lg bg-fiord-200 py-4 transition-transform duration-300 hover:scale-105 dark:bg-fiord-800"
                 >
                   <Heading size="small" class="!text-royal-blue-300">{{
                     mockData.numOfRequests
